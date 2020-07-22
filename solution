@@ -1,0 +1,32 @@
+1)
+select Name
+from Eployee as empa Join
+Employee as empb on empa.department_ID = empb.department_ID
+where empa.salary = (select MAX(salary)from Employee)
+2)
+select department_ID
+from Employee
+group by department_ID
+having count (*) <=3
+3)
+with dsal as 
+(select department_ID,SUM(salary) as Salary
+from Employee
+group by department_ID)
+select department_ID
+from dsal 
+where dsal.salary = (select MAX(salary) from dsal)
+4)
+insert Into Department
+values (003,Testing)
+5)
+insert Into Employee
+values (1003,1004,1005,200),(003,003,003,003),(200,200,200,92),(Ivan,Anton,Daniil,Andrey),(15000,20000,25000,35000)
+6)
+delete from Department
+where ID = (select department_ID
+from Employee
+where department_id = 003)
+7)
+Alter Table Department
+Alter Column ID Number ()
